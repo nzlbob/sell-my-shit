@@ -3,7 +3,14 @@
 
 Hooks.on("init", function() {
  // console.log("This code runs once the Foundry VTT software begins its initialization workflow.");
-
+  game.settings.register("sell-my-shit", "itemSellRate", {
+    name: "Sell Rate",
+    hint: "The percentage of an item's value that is received when sold. (SFRPG standard = 10%",
+    scope: "world",
+    type: Number,
+    default: 10,
+    config: true
+  });
 });
 
 Hooks.on("ready", function() {
@@ -11,6 +18,7 @@ Hooks.on("ready", function() {
 });
 
 Hooks.on("renderActorSheet", function(app, html, data) {
+
   const actor = app.actor;
  // console.log("This code runs when the Actor Sheet is rendered.", app, html, data);
   // Example: Add a button to the Actor Sheet
@@ -45,6 +53,7 @@ Hooks.on("renderActorSheet", function(app, html, data) {
 });
 
 async function sellMyShit(event) {
+    const rate = await game.settings.get("sell-my-shit", "itemSellRate") /100;
 const saleableItems = CONFIG.SFRPG.physicalItemTypes;
 let salevalue = 0 
   const button = $(event.currentTarget);
@@ -59,7 +68,14 @@ const sellableItems = actor.items.contents.filter(item => {
   if (item.system.price === 0) return false;
   if (item.system.quantity === 0) return false;
   if (item.system.equipped === true ) return false;
-salevalue += (item.system.price * item.system.quantity * 0.1);
+  if (item.parentItem)
+  {
+    console.log("Parent Item found:", item.parentItem);
+    if (item.parentItem.system.price === 0) return false;
+    if (item.parentItem.system.quantity === 0) return false;
+    if (item.parentItem.system.equipped === true ) return false;
+  }
+salevalue += (item.system.price * item.system.quantity * rate);
 sellItems.push(item.id)
   return true;
 });

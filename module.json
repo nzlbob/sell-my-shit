@@ -1,7 +1,7 @@
 {
 "id": "sell-my-shit",
   "title": "Sell my shit",
-  "description": "This module is to sell-my-shit",
+  "description": "This module sells all items that have a quantity, a price > 0 and is not equipped, or fitted to a parent item that meets these criteria. Sales are made at 10% value and the total sale value is added to the actor's credit. To access this module the players name must contain the word 'loot'.",
 
   "authors": [
     {
@@ -9,7 +9,7 @@
       "flags": {}
     }
   ],
-  "version": "0.01",
+  "version": "0.02",
   "compatibility": {
     "minimum": "10",
     "verified": "12",
