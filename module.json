@@ -1,0 +1,74 @@
+{
+"id": "sell-my-shit",
+  "title": "sell-my-shit",
+  "description": "This module is to sell-my-shit",
+
+  "authors": [
+    {
+      "name": "bob",
+      "flags": {}
+    }
+  ],
+  "version": "0.01",
+  "compatibility": {
+    "minimum": "10",
+    "verified": "12",
+    "maximum": "12"
+  },
+    "esmodules": [
+    "modules/sell-my-shit.js"
+  ],
+
+  "relationships": {
+    "systems": [
+      {
+        "id": "sfrpg",
+        "type": "system",
+        "compatibility": {
+          "verified": "0.0.0"
+        }
+      }
+    ]
+  },
+
+  "languages": [
+    {
+      "lang": "en",
+      "name": "English",
+      "path": "lang/en.json",
+      "flags": {}
+    }
+    
+  ],   
+     "flags": {},
+      "banner": "modules/sell-my-shit/images/system/pactWorlds.webp",
+
+
+  "styles": [
+    "styles/sell-my-shit.css"
+  ],
+  "url": "https://github.com/nzlbob/sell-my-shit",
+  "manifest": "https://raw.githubusercontent.com/nzlbob/sell-my-shit/refs/heads/main/module.json",
+  "download": "https://github.com/nzlbob/sell-my-shit/archive/refs/heads/main.zip",
+  "media": [
+    {
+      "type": "thumbnail",
+      "url": "modules/sfrpg-galactic-trade/images/galactic-trade.webp",
+      "loop": false,
+      "flags": {}
+    },
+    {
+      "type": "setup",
+      "url": "modules/sfrpg-galactic-trade/images/galactic-trade.webp",
+      "loop": false,
+      "flags": {}
+    },
+    {
+      "type": "cover",
+      "url": "https://raw.githubusercontent.com/nzlbob/sfrpg-galactic-trade/main/images/galactic-trade.webp",
+      "caption": "sell-my-shit",
+      "loop": false,
+      "flags": {}
+    }
+  ]
+}
