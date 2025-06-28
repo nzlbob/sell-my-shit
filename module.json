@@ -41,7 +41,7 @@
     
   ],   
      "flags": {},
-      "banner": "modules/sell-my-shit/images/system/pactWorlds.webp",
+      "banner": "modules/sell-my-shit/images/system/banner.webp",
 
 
   "styles": [
@@ -53,19 +53,19 @@
   "media": [
     {
       "type": "thumbnail",
-      "url": "modules/sfrpg-galactic-trade/images/galactic-trade.webp",
+      "url": "modules/sell-my-shit/images/system/banner.webp",
       "loop": false,
       "flags": {}
     },
     {
       "type": "setup",
-      "url": "modules/sfrpg-galactic-trade/images/galactic-trade.webp",
+      "url": "modules/sell-my-shit/images/system/banner.webp",
       "loop": false,
       "flags": {}
     },
     {
       "type": "cover",
-      "url": "https://raw.githubusercontent.com/nzlbob/sfrpg-galactic-trade/main/images/galactic-trade.webp",
+      "url": "https://raw.githubusercontent.com/nzlbob/sell-my-shit/main/images/system/banner.webp",
       "caption": "sell-my-shit",
       "loop": false,
       "flags": {}
