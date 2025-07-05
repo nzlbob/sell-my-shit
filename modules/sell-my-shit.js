@@ -62,13 +62,16 @@ let salevalue = 0
   const sellItems = [];
 //  console.log("Sell My Shit clicked for actor:", actor);
   // Implement your selling logic here
+
+
+
 const sellableItems = actor.items.contents.filter(item => {
 
   if (!saleableItems.includes(item.type)) return false;
   if (item.system.price === 0) return false;
   if (item.system.quantity === 0) return false;
   if (item.system.equipped === true ) return false;
-  if (item.parentItem)
+  if (item.parentItem && (item.parentItem.type !== "container"))
   {
     console.log("Parent Item found:", item.parentItem);
     if (item.parentItem.system.price === 0) return false;
