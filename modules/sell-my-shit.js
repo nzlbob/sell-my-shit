@@ -78,8 +78,11 @@ const sellableItems = actor.items.contents.filter(item => {
     if (item.parentItem.system.quantity === 0) return false;
     if (item.parentItem.system.equipped === true ) return false;
   }
-salevalue += (item.system.price * item.system.quantity * rate);
-sellItems.push(item.id)
+  const packsize = item.system.quantityPerPack > 0 ? item.system.quantityPerPack : 1;
+
+salevalue += (item.system.price * item.system.quantity * rate / packsize);
+//console.log(salevalue);
+sellItems.push(item.id);
   return true;
 });
 
