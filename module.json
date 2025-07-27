@@ -9,15 +9,44 @@
       "flags": {}
     }
   ],
-  "version": "0.031",
+  "version": "0.032",
   "compatibility": {
     "minimum": "10",
-    "verified": "12",
-    "maximum": "12"
+    "verified": "13",
+    "maximum": "13"
   },
     "esmodules": [
     "modules/sell-my-shit.js"
   ],
+
+
+"packs": [
+    {
+      "name": "sms_characters",
+      "label": "Bonus Actors",
+      "system": "sfrpg",
+      "type": "Actor",
+      "path": "./packs/sms_characters",
+      "ownership": {
+        "PLAYER": "NONE",
+        "TRUSTED": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    },
+        {
+      "name": "sms_items",
+      "label": "Bonus Items",
+      "system": "sfrpg",
+      "type": "Item",
+      "path": "./packs/sms_items",
+      "ownership": {
+        "PLAYER": "NONE",
+        "TRUSTED": "NONE",
+        "ASSISTANT": "OWNER"
+      }
+    }
+  ],
+
 
   "relationships": {
     "systems": [

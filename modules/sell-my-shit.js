@@ -80,7 +80,10 @@ const sellableItems = actor.items.contents.filter(item => {
   }
   const packsize = item.system.quantityPerPack > 0 ? item.system.quantityPerPack : 1;
 
-salevalue += (item.system.price * item.system.quantity * rate / packsize);
+let sellRate = rate
+if (item.type === "goods" ) sellRate = 1;
+
+salevalue += (item.system.price * item.system.quantity * sellRate / packsize);
 //console.log(salevalue);
 sellItems.push(item.id);
   return true;
