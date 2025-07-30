@@ -1,6 +1,10 @@
 {
-    "elevator": {
-        "title": "The Elevator",
-        "description": "This module makes elevators"
+    "SMS": {
+        "CombatRoles": {
+            "Trap": "Trap"
+        },
+        "Descriptions": {
+            "Trap": "A cunning and deceptive combatant who uses traps and ambushes to gain the upper hand."
+        }
     }
 }

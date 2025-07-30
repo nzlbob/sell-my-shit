@@ -1,0 +1,23 @@
+<form id="entity-create" autocomplete="off" onsubmit="event.preventDefault();">
+
+ <h3>Set NPC Type:</h3>
+ <input type="radio" {{#if (eq npctype "trap")}}checked{{/if}} id="trap" data-id = "trap" name="npctype" value="trap">
+ <label for="trap">Trap</label><br>
+ <input type="radio" {{#if (eq npctype "combatant")}}checked{{/if}} id="combatant" data-id = "combatant" name="npctype" value="combatant">
+ <label for="combatant">Combatant</label><br>
+ <input type="radio" {{#if (eq npctype "expert")}}checked{{/if}} id="expert" data-id = "expert" name="npctype" value="expert">
+ <label for="expert">Expert</label><br>
+  <input type="radio" {{#if (eq npctype "spellcaster")}}checked{{/if}} id="spellcaster" data-id = "spellcaster" name="npctype" value="spellcaster">
+ <label for="spellcaster">Spellcaster</label><br>
+  <br>
+ <h3>Special Abilities:</h3>
+<input type="checkbox" {{#if extraHP }}checked{{/if}} id="extrahp" data-id = "extrahp" name="extrahp" value="extrahp">
+ <label for="extrahp">Extra Hit Points</label><br>
+<br>
+{{console "Hello World"}}
+
+{{console this}}
+
+</form>
+
+
