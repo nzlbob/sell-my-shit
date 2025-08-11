@@ -25,12 +25,12 @@ Hooks.on("init", function () {
     expert: "SFRPG.CombatRoles.Descriptions.Expert",
     spellcaster: "SFRPG.CombatRoles.Descriptions.Spellcaster"
   }
-    CONFIG.SFRPG.combatRoleImages = {
-      trap: "systems/sfrpg/images/cup/gameplay/combatant.webp",
-      combatant: "systems/sfrpg/images/cup/gameplay/combatant.webp",
-      expert: "systems/sfrpg/images/cup/gameplay/expert.webp",
-      spellcaster: "systems/sfrpg/images/cup/gameplay/spellcaster.webp"
-    }
+  CONFIG.SFRPG.combatRoleImages = {
+    trap: "systems/sfrpg/images/cup/gameplay/combatant.webp",
+    combatant: "systems/sfrpg/images/cup/gameplay/combatant.webp",
+    expert: "systems/sfrpg/images/cup/gameplay/expert.webp",
+    spellcaster: "systems/sfrpg/images/cup/gameplay/spellcaster.webp"
+  }
 
 
 
@@ -106,7 +106,7 @@ async function setNPC(event) {
     name: actor.name
   }
 
-//  console.log(templateData)
+  //  console.log(templateData)
 
 
   const content = await renderTemplate("modules/sell-my-shit/templates/set-npc-hp.html", templateData);
@@ -115,10 +115,16 @@ async function setNPC(event) {
 
   const updateNPCHP = async (data) => {
     const hp = foundry.utils.duplicate(templateData.actor.system.attributes.hp);
-    if(templateData.npctype) {
+    if (templateData.npctype) {
       const maxhp = SMS.HP[templateData.npctype][templateData.actor.system.details.cr];
       hp.max = maxhp;
       hp.value = maxhp;
+      if (templateData.extrahp) {
+        hp.max += Math.floor(hp.max * 0.2);
+        hp.value += Math.floor(hp.max * 0.2);
+      }
+
+
 
 
       return hp;
@@ -128,17 +134,27 @@ async function setNPC(event) {
       title: "Set NPC Max HP",
       content: content,
 
-      label: "Sell",
+      label: "Set Max HP",
       callback: (html, s) => {
 
         const form = html[0].querySelector("form");
         let formDataExtended = new FormDataExtended(form);
         foundry.utils.mergeObject(templateData, formDataExtended.object);
+        console.log(templateData, formDataExtended);
 
-        const maxhp = SMS.HP[templateData.npctype][templateData.actor.system.details.cr];
+        if (templateData.npctype) {
+          const maxhp = SMS.HP[templateData.npctype][templateData.actor.system.details.cr];
+          hp.max = maxhp;
+          hp.value = maxhp;
+          if (templateData.extrahp) {
+            hp.max += Math.floor(hp.max * 0.2);
+            hp.value += Math.floor(hp.max * 0.2);
+          }
+        }
+        else {
+          hp.value = hp.max;
+        }
 
-        hp.max = maxhp;
-        hp.value = maxhp
         //hp.tooltip = ["Set to Max HP"];
 
 
@@ -151,7 +167,7 @@ async function setNPC(event) {
   updateNPCHP(templateData).then((reply) => {
 
     actor.update({
-      
+
       "system.attributes.hp.max": reply.max,
       "system.attributes.hp.value": reply.value,
       "system.details.combatRole": templateData.npctype,
